@@ -16,7 +16,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="COUNT" elementType="Argument">
             <stringProp name="Argument.name">COUNT</stringProp>
-            <stringProp name="Argument.value">500</stringProp>
+            <stringProp name="Argument.value">1000</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -118,7 +118,7 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">${COUNT}</stringProp>
+          <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">2</stringProp>
         <stringProp name="ThreadGroup.ramp_time">0</stringProp>
@@ -222,7 +222,7 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/blog/Account/login.aspx-72" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
             <collectionProp name="Arguments.arguments">
               <elementProp name="__VIEWSTATE" elementType="HTTPArgument">
@@ -757,79 +757,80 @@
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Sampler" enabled="false">
-          <stringProp name="BeanShellSampler.query"> Sting  var1 = &quot;adddsfdsfsfafdsfdsdsf&quot;
-
-
- 
- vars.puts(aaa,var1)</stringProp>
-          <stringProp name="BeanShellSampler.filename"></stringProp>
-          <stringProp name="BeanShellSampler.parameters"></stringProp>
-          <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
-        </BeanShellSampler>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/blog/api/posts-120" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;Id&quot;:&quot;&quot;,&quot;Title&quot;:&quot;test post random date&quot;,&quot;Author&quot;:&quot;editor&quot;,&quot;Content&quot;:&quot;&lt;p&gt;${__RandomString(100,abcdefghijklmmopqrstuvwxyz,Text)}&lt;/p&gt;&quot;,&quot;DateCreated&quot;:&quot;${__RandomDate(,2020-08-01,2020-08-31,,)} 12:05&quot;,&quot;Slug&quot;:&quot;test-post-1&quot;,&quot;Categories&quot;:[],&quot;Tags&quot;:[],&quot;Comments&quot;:&quot;&quot;,&quot;HasCommentsEnabled&quot;:true,&quot;IsPublished&quot;:true}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">epcnszxw0226.princeton.epam.com</stringProp>
-          <stringProp name="HTTPSampler.port"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-          <stringProp name="HTTPSampler.path">/blog/api/posts</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        </HTTPSamplerProxy>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">${COUNT}</stringProp>
+        </LoopController>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="Referer" elementType="Header">
-                <stringProp name="Header.name">Referer</stringProp>
-                <stringProp name="Header.value">http://epcnszxw0226.princeton.epam.com/blog/admin/app/editor/editpost.cshtml</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Language" elementType="Header">
-                <stringProp name="Header.name">Accept-Language</stringProp>
-                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
-              </elementProp>
-              <elementProp name="Origin" elementType="Header">
-                <stringProp name="Header.name">Origin</stringProp>
-                <stringProp name="Header.value">http://epcnszxw0226.princeton.epam.com</stringProp>
-              </elementProp>
-              <elementProp name="Content-Type" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json;charset=utf-8</stringProp>
-              </elementProp>
-              <elementProp name="Accept-Encoding" elementType="Header">
-                <stringProp name="Header.name">Accept-Encoding</stringProp>
-                <stringProp name="Header.value">gzip, deflate</stringProp>
-              </elementProp>
-              <elementProp name="User-Agent" elementType="Header">
-                <stringProp name="Header.name">User-Agent</stringProp>
-                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:79.0) Gecko/20100101 Firefox/79.0</stringProp>
-              </elementProp>
-              <elementProp name="Accept" elementType="Header">
-                <stringProp name="Header.name">Accept</stringProp>
-                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
-              </elementProp>
-              <elementProp name="x-blog-instance" elementType="Header">
-                <stringProp name="Header.name">x-blog-instance</stringProp>
-                <stringProp name="Header.value">96d5b379-7e1d-4dac-a6ba-1e50db561b04</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GeneratePost" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;Id&quot;:&quot;&quot;,&quot;Title&quot;:&quot;test post random date&quot;,&quot;Author&quot;:&quot;editor&quot;,&quot;Content&quot;:&quot;&lt;p&gt;${__RandomString(100,abcdefghijklmmopqrstuvwxyz,Text)}&lt;/p&gt;&quot;,&quot;DateCreated&quot;:&quot;${datelist} 12:05&quot;,&quot;Slug&quot;:&quot;test-post-1&quot;,&quot;Categories&quot;:[],&quot;Tags&quot;:[],&quot;Comments&quot;:&quot;&quot;,&quot;HasCommentsEnabled&quot;:true,&quot;IsPublished&quot;:true}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">epcnszxw0226.princeton.epam.com</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/blog/api/posts</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout">180000</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">http://epcnszxw0226.princeton.epam.com/blog/admin/app/editor/editpost.cshtml</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">http://epcnszxw0226.princeton.epam.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=utf-8</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:79.0) Gecko/20100101 Firefox/79.0</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="x-blog-instance" elementType="Header">
+                  <stringProp name="Header.name">x-blog-instance</stringProp>
+                  <stringProp name="Header.value">96d5b379-7e1d-4dac-a6ba-1e50db561b04</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">2000</stringProp>
+          </TestAction>
           <hashTree/>
         </hashTree>
       </hashTree>
