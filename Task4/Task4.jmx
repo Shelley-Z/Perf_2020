@@ -47,7 +47,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="user_num" elementType="Argument">
             <stringProp name="Argument.name">user_num</stringProp>
-            <stringProp name="Argument.value">2</stringProp>
+            <stringProp name="Argument.value">20</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="loopCount" elementType="Argument">
@@ -158,9 +158,9 @@
       <hashTree/>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="false"/>
       <hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Add User " enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T_Add User" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
-          <boolProp name="TransactionController.parent">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add User" enabled="true">
@@ -169,7 +169,7 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;UserName&quot;:&quot;testuser${__Random(1,100,)}&quot;,&quot;Email&quot;:&quot;aa@bb${__Random(1,100,)}.com&quot;,&quot;Password&quot;:&quot;111111&quot;,&quot;roles&quot;:[{&quot;IsChecked&quot;:false,&quot;RoleName&quot;:&quot;Administrators&quot;,&quot;IsSystemRole&quot;:true},{&quot;IsChecked&quot;:false,&quot;RoleName&quot;:&quot;Editors&quot;,&quot;IsSystemRole&quot;:true}]}</stringProp>
+                  <stringProp name="Argument.value">{&quot;UserName&quot;:&quot;testuser${__Random(1,10000000,)}&quot;,&quot;Email&quot;:&quot;aa@bb${__Random(1,1000,)}.com&quot;,&quot;Password&quot;:&quot;111111&quot;,&quot;roles&quot;:[{&quot;IsChecked&quot;:false,&quot;RoleName&quot;:&quot;Administrators&quot;,&quot;IsSystemRole&quot;:true},{&quot;IsChecked&quot;:false,&quot;RoleName&quot;:&quot;Editors&quot;,&quot;IsSystemRole&quot;:true}]}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -228,9 +228,9 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Delete User " enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="T_Delete User" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
-          <boolProp name="TransactionController.parent">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete User" enabled="true">
@@ -303,12 +303,12 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">${user_num}</stringProp>
-        <stringProp name="ThreadGroup.ramp_time"></stringProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
-        <stringProp name="ThreadGroup.duration">900</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">300</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">600</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
@@ -641,21 +641,21 @@
                 <intProp name="InterleaveControl.style">1</intProp>
               </RandomController>
               <hashTree>
-                <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Add User - Module Controller" enabled="true">
+                <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="R_Add User - Module Controller" enabled="true">
                   <collectionProp name="ModuleController.node_path">
                     <stringProp name="764597751">Test Plan</stringProp>
                     <stringProp name="80579375">Task4</stringProp>
                     <stringProp name="170071582">Test Fragment</stringProp>
-                    <stringProp name="516132150">Add User </stringProp>
+                    <stringProp name="-467023947">T_Add User</stringProp>
                   </collectionProp>
                 </ModuleController>
                 <hashTree/>
-                <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Delete User - Module Controller" enabled="true">
+                <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="R_Delete User - Module Controller" enabled="true">
                   <collectionProp name="ModuleController.node_path">
                     <stringProp name="764597751">Test Plan</stringProp>
                     <stringProp name="80579375">Task4</stringProp>
                     <stringProp name="170071582">Test Fragment</stringProp>
-                    <stringProp name="-2084413696">Delete User </stringProp>
+                    <stringProp name="988857781">T_Delete User</stringProp>
                   </collectionProp>
                 </ModuleController>
                 <hashTree/>
@@ -671,7 +671,7 @@
                   <stringProp name="764597751">Test Plan</stringProp>
                   <stringProp name="80579375">Task4</stringProp>
                   <stringProp name="170071582">Test Fragment</stringProp>
-                  <stringProp name="516132150">Add User </stringProp>
+                  <stringProp name="-467023947">T_Add User</stringProp>
                 </collectionProp>
               </ModuleController>
               <hashTree/>
@@ -686,7 +686,7 @@
                   <stringProp name="764597751">Test Plan</stringProp>
                   <stringProp name="80579375">Task4</stringProp>
                   <stringProp name="170071582">Test Fragment</stringProp>
-                  <stringProp name="-2084413696">Delete User </stringProp>
+                  <stringProp name="988857781">T_Delete User</stringProp>
                 </collectionProp>
               </ModuleController>
               <hashTree/>
