@@ -41,7 +41,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="user_num" elementType="Argument">
             <stringProp name="Argument.name">user_num</stringProp>
-            <stringProp name="Argument.value">2</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="predefined_date" elementType="Argument">
@@ -51,7 +51,7 @@
           </elementProp>
           <elementProp name="loopCount" elementType="Argument">
             <stringProp name="Argument.name">loopCount</stringProp>
-            <stringProp name="Argument.value">50</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="host" elementType="Argument">
@@ -577,7 +577,8 @@ for(int i=0;i&lt;l.length;i++)
               <stringProp name="cacheKey">true</stringProp>
               <stringProp name="script">
 def postContent=prev.getResponseDataAsString()
-postContent=postContent.replaceFirst(&quot;&lt;p&gt;(\\S*)&lt;\\/p&gt;&quot;,&quot;Update by script&quot;)
+def replace=&quot;update for&quot;+vars.get(&apos;postID&apos;)
+postContent=postContent.replaceFirst(&quot;&lt;p&gt;(\\S*)&lt;\\/p&gt;&quot;,replace)
 vars.put(&apos;postContent&apos;,postContent)</stringProp>
             </JSR223PostProcessor>
             <hashTree/>
