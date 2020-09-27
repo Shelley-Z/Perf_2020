@@ -244,7 +244,7 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">[{&quot;UserName&quot;:&quot;${DeleteUserName}&quot;,&quot;Email&quot;:&quot;aa@bb68.com&quot;,&quot;Roles&quot;:[{&quot;IsChecked&quot;:false,&quot;RoleName&quot;:&quot;Anonymous&quot;,&quot;IsSystemRole&quot;:true}],&quot;OldPassword&quot;:null,&quot;Profile&quot;:{&quot;DisplayName&quot;:&quot;testuser93&quot;,&quot;FirstName&quot;:&quot;testuser93&quot;,&quot;MiddleName&quot;:&quot;&quot;,&quot;LastName&quot;:&quot;&quot;,&quot;EmailAddress&quot;:&quot;aa@bb68.com&quot;,&quot;Birthday&quot;:&quot;1\/1\/1900&quot;,&quot;PhotoUrl&quot;:&quot;&quot;,&quot;Private&quot;:false,&quot;PhoneMobile&quot;:&quot;&quot;,&quot;PhoneMain&quot;:&quot;&quot;,&quot;PhoneFax&quot;:&quot;&quot;,&quot;CityTown&quot;:&quot;&quot;,&quot;RegionState&quot;:&quot;&quot;,&quot;Country&quot;:&quot;&quot;,&quot;AboutMe&quot;:&quot;&quot;},&quot;IsChecked&quot;:true,&quot;Password&quot;:null}]</stringProp>
+                  <stringProp name="Argument.value">[${DeleteUser}]</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -630,6 +630,32 @@
               <stringProp name="JSONPostProcessor.match_numbers">${UserNumber_matchNr}</stringProp>
               <stringProp name="JSONPostProcessor.defaultValues">NO_USER</stringProp>
             </JSONPostProcessor>
+            <hashTree/>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+def int deleteNumber=${UserNumber_matchNr}-1
+def userlist = new JsonSlurper().parseText(prev.getResponseDataAsString())
+
+if (userlist[deleteNumber]!=null)
+{
+userlist[deleteNumber].IsChecked=true
+}
+
+//vars.put(&quot;deleteNumber&quot;, deleteNumber.toString())
+vars.put(&quot;DeleteUser&quot;, JsonOutput.toJson(userlist[deleteNumber]))
+//vars.put(&quot;Userlist&quot;, JsonOutput.toJson(userlist))
+
+
+
+
+</stringProp>
+            </JSR223PostProcessor>
             <hashTree/>
           </hashTree>
           <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Random Add Delete  - If Controller" enabled="true">
