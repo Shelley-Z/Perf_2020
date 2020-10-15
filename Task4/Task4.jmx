@@ -666,7 +666,7 @@
             <hashTree/>
             <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="DeleteUser - JSON Extractor" enabled="true">
               <stringProp name="JSONPostProcessor.referenceNames">DeleteUserName</stringProp>
-              <stringProp name="JSONPostProcessor.jsonPathExprs">$..UserName</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$[?(@.UserName!=&apos;Admin&apos;)]..UserName</stringProp>
               <stringProp name="JSONPostProcessor.match_numbers">${UserNumber_matchNr}</stringProp>
               <stringProp name="JSONPostProcessor.defaultValues">NO_USER</stringProp>
             </JSONPostProcessor>
@@ -713,7 +713,7 @@ vars.put(&quot;DeleteUser&quot;, JsonOutput.toJson(userlist[deleteNumber]))
             <hashTree/>
           </hashTree>
           <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Random Add Delete  - If Controller" enabled="true">
-            <stringProp name="IfController.condition">(${UserNumber_matchNr}&lt;20&amp;&amp;${UserNumber_matchNr}&gt;10)</stringProp>
+            <stringProp name="IfController.condition">(${UserNumber_matchNr}&lt;${usernumber_max}&amp;&amp;${UserNumber_matchNr}&gt;${usernumber_min})</stringProp>
             <boolProp name="IfController.evaluateAll">false</boolProp>
           </IfController>
           <hashTree>
@@ -742,7 +742,7 @@ vars.put(&quot;DeleteUser&quot;, JsonOutput.toJson(userlist[deleteNumber]))
             </hashTree>
           </hashTree>
           <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Add User - If Controller" enabled="true">
-            <stringProp name="IfController.condition">(${UserNumber_matchNr}&lt;=10)</stringProp>
+            <stringProp name="IfController.condition">(${UserNumber_matchNr}&lt;=${usernumber_min})</stringProp>
             <boolProp name="IfController.evaluateAll">false</boolProp>
           </IfController>
           <hashTree>
@@ -757,7 +757,7 @@ vars.put(&quot;DeleteUser&quot;, JsonOutput.toJson(userlist[deleteNumber]))
             <hashTree/>
           </hashTree>
           <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Delete User - If Controller" enabled="true">
-            <stringProp name="IfController.condition">(${UserNumber_matchNr}&gt;=20)</stringProp>
+            <stringProp name="IfController.condition">(${UserNumber_matchNr}&gt;=${usernumber_max})</stringProp>
             <boolProp name="IfController.evaluateAll">false</boolProp>
           </IfController>
           <hashTree>
