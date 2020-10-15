@@ -124,31 +124,6 @@
             <stringProp name="Argument.value">(test-post-[1-9]\d*)</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="Protocol" elementType="Argument">
-            <stringProp name="Argument.name">Protocol</stringProp>
-            <stringProp name="Argument.value">http</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="Port" elementType="Argument">
-            <stringProp name="Argument.name">Port</stringProp>
-            <stringProp name="Argument.value"></stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="hfCaptcha" elementType="Argument">
-            <stringProp name="Argument.name">hfCaptcha</stringProp>
-            <stringProp name="Argument.value">d71a8ea7-e181-45d4-9988-41e2d320ae03</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="VIEWSTATE" elementType="Argument">
-            <stringProp name="Argument.name">VIEWSTATE</stringProp>
-            <stringProp name="Argument.value">EwGS9Tv1/OYcqGbh6F3gOIHA+t9CCLsGfNz5rlcj7OnP8IJe1Z1evh3hmV+dye8hY6tdLzUdQX8FvXtMcOaGS8UIW0AYkW9LA7LUalFpb/guIe+vFjd1epf2glPru/5+ES3Th5EiPF6roKk5cIbT6yL38bC4jtVXMNhNDmlZbao0RBX0f7fizgVzTYM1/gB3AbkjRg==EwGS9Tv1/OYcqGbh6F3gOIHA+t9CCLsGfNz5rlcj7OnP8IJe1Z1evh3hmV+dye8hY6tdLzUdQX8FvXtMcOaGS8UIW0AYkW9LA7LUalFpb/guIe+vFjd1epf2glPru/5+ES3Th5EiPF6roKk5cIbT6yL38bC4jtVXMNhNDmlZbao0RBX0f7fizgVzTYM1/gB3AbkjRg==</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="EVENTVALIDATION" elementType="Argument">
-            <stringProp name="Argument.name">EVENTVALIDATION</stringProp>
-            <stringProp name="Argument.value">YWrRnqI+hA9iGNgKNC3kOJ6LkI1SCW3Myh+CMidcPPw3tfNDRFOlqXao8GxHfQU/qTMmmI78QFk0/qo2crJMPl2FUMYevYwCBqyV4/aba5iei6KbgDeQZ+VPuwqhSfnY/70wKJ4UFF4mDlc+fvPQmZd89gCaMkhSGbjtTatxSVRR+4DbY23jYnQUEAjXQa7Kl0woAhwp9WQpY6l5Oyi/A2BIaQqwWGgtMeMzLcG9Cws1igj1a2SyqnkjpikQAvRWpw6YDXHUIjI54KNnDF7tYIdnXORljcR5EQ19fKWgk7MuhxjQUdEWhqqvFcws/MDtwCjkmQ585q/rlRldtEVQxs4muNn0AACGTeY72d/+j/xa+1pf3sSnbIRqR9H4qfB9K3E38DN93D/ScF10HsIfn1pkTBYZlCEVUTGndmbhDlrM8St0PrutgADOtKaqmNXZg6KbgknbkArOB/e+zwjE58+KiFpo25d2rS5tVi4YaBtNb1G5kmXHNuTqMHSWgdXBif8+u00HlMtFEDDjLYfEeZ03oSOMetFbPk7CIjB8C9iiI8/+cLhhsNu1aJvltGyRkpRloT062VahxOdfeWgGysZW9780vTqenqbcctJ2uHwz28UCtXRb+MVoBhi6LBkz2SDT03q0VuCAI6NZ4WFefClO7LrbitLgHDfdO3MMOy0eH3vD0I/xnlt90sknXe5/v1p68zrMrQH9FbvVR3XN59icD7Ohs/vszV1wAgzLj4k3wXpWvcN19zICnAYv98wmhudXuyH7owUp3yS3jar2w1U0F7HjENwFfEFVynfzGCSGxWzhv9HDzJgg6wA8YqzBDFYpgsBAuhIjSo3Hx/nV8U8uxyKgTqnG27RELLqSFXKUfH7YYeT9E5ciU7JqyovIWRyKPktKS2Gz4wnrf7p40naqTMpxdgh3WXz6tN8LbcbBHzEwpaQ5mi6ttNaevGSP/ENyb3ldQvgno8Y9NdOJQtgLmWXS7hoYCAOgQ97GSXImHupUvC5ETdW/06f4WMAUbvCXAw==</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -922,8 +897,28 @@ else
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
+              <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="hfCaptcha" enabled="true">
+                <stringProp name="HtmlExtractor.refname">hfCaptcha</stringProp>
+                <stringProp name="HtmlExtractor.expr">[id==ctl00_cphBody_ucCommentList_hfCaptcha]</stringProp>
+                <stringProp name="HtmlExtractor.attribute">value</stringProp>
+                <stringProp name="HtmlExtractor.default">NO_VALUE</stringProp>
+                <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                <stringProp name="HtmlExtractor.match_number"></stringProp>
+                <stringProp name="HtmlExtractor.extractor_impl">JSOUP</stringProp>
+              </HtmlExtractor>
+              <hashTree/>
+              <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="EVENTVALIDATION" enabled="true">
+                <stringProp name="HtmlExtractor.refname">EVENTVALIDATION</stringProp>
+                <stringProp name="HtmlExtractor.expr">[id=__EVENTVALIDATION]</stringProp>
+                <stringProp name="HtmlExtractor.attribute">value</stringProp>
+                <stringProp name="HtmlExtractor.default">NO_VALUE</stringProp>
+                <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                <stringProp name="HtmlExtractor.match_number"></stringProp>
+                <stringProp name="HtmlExtractor.extractor_impl">JSOUP</stringProp>
+              </HtmlExtractor>
+              <hashTree/>
               <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="VIEWSTATE" enabled="true">
-                <stringProp name="HtmlExtractor.refname">VIEWSTATE_GET</stringProp>
+                <stringProp name="HtmlExtractor.refname">VIEWSTATE</stringProp>
                 <stringProp name="HtmlExtractor.expr">[id=__VIEWSTATE]</stringProp>
                 <stringProp name="HtmlExtractor.attribute">value</stringProp>
                 <stringProp name="HtmlExtractor.default">NO_VALUE</stringProp>
@@ -1011,7 +1006,7 @@ for(int i=0;i&lt;l.length;i++)
                     <elementProp name="ctl00$cphBody$ucCommentList$hiddenReplyTo" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">true</boolProp>
                       <stringProp name="Argument.name">ctl00$cphBody$ucCommentList$hiddenReplyTo</stringProp>
-                      <stringProp name="Argument.value"></stringProp>
+                      <stringProp name="Argument.value">ctl00$cphBody$ucCommentList$hiddenReplyTo: </stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
